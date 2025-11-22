@@ -2,6 +2,8 @@
 import {Button } from "@/components/ui/button"; 
 import { Input } from "@/components/ui/input"; 
 import { Textarea } from "@/components/ui/textarea";
+import { motion } from "framer-motion";
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import{
 Select, 
 SelectContent, 
@@ -12,7 +14,6 @@ SelectTrigger,
 SelectValue
 } from "@/components/ui/select";
 
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const info = [
     {
@@ -32,7 +33,6 @@ const info = [
     },
 ]
 
-import { motion } from "framer-motion";
 
 const Contact = () => {
     return (
@@ -42,13 +42,30 @@ const Contact = () => {
         transition: {delay: 2.4, duration: 0.4, ease: "easeIn"}}}
         className="py-6"
         >
-        <div className="container mx-auto">
+        <div className="container mx-auto" id="contact">
+            <div className='flex flex-col items-center md:items-start mb-8'>
+                <span className="text-accent mb-2 text-lg font-medium">Restons en contact</span>
+                <div className="w-[320px] h-0.5 bg-white/10 rounded-full overflow-hidden mb-3 relative">
+                    <motion.div 
+                        className="h-full bg-accent rounded-full absolute left-1/2 -translate-x-1/2"
+                        initial={{ width: '0%' }}
+                        animate={{ width: '100%' }}
+                        transition={{
+                            duration: 1.5,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                        }}
+                    />
+                </div>
+                <h1 className="text-6xl mb-4 md:mb-8 font-bold">Contactez-moi</h1>
+            </div>
             <div className="flex flex-col lg:flex-row gap-[30px] ">
                 <div className="lg:h-[54%] order-2 lg:order-none">
                     <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-                        <h3 className="text-4xl text-accent">Recrutez-Moi</h3>
-                        <p className="text-white/60">
-                        Je suis ouvert aux opportunités de projets, n'hésitez pas à me contacter si vous recherchez un développeur web passionné et motivé.                        </p>
+                        <h3 className="text-3xl text-accent">Recrutez-Moi</h3>
+                        <p className="text-white/60 text-sm">
+                        Je suis ouvert aux opportunités de projets, n'hésitez pas à me contacter si vous recherchez un développeur web passionné et motivé.                        
+                        </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <Input type="firstname" placeholder="Prénom"/>
                             <Input type="lastname" placeholder="Nom"/>
@@ -66,11 +83,12 @@ const Contact = () => {
                                     <SelectItem value="mst">Développement back-end</SelectItem>
                                     <SelectItem value="pst">Conception de maquettes via Figma</SelectItem>
                                     <SelectItem value="est">Déploiement</SelectItem>
+                                    <SelectItem value="oth">Referencement SEO</SelectItem>
                                 </SelectGroup>
                             </SelectContent>
                         </Select>
 
-                        <Textarea className="h-[200px]" placeholder="Ecrivez votre message ici."/>
+                        <Textarea className="h-[150px]" placeholder="Ecrivez votre message ici."/>
                         <Button className="max-w-40">Envoyer</Button>
                     </form>
                 </div>
@@ -98,3 +116,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

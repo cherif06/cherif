@@ -8,7 +8,7 @@ import MobileNav from './MobileNav';
 const header=()=>{
     return(
         <header className='py-5 lg:py-8 text-white'>
-            <div className='container mx-auto flex justify-between items-center'>
+            <div className='max-w-7xl px-4 sm:px-8 mx-auto flex justify-between items-center'>
                 {/* Logo */}
                 <Link href="/">
                 <h1 className='text-4xl font-semibold'>
@@ -18,7 +18,7 @@ const header=()=>{
                 {/* Navigation and hire me button */}
                 <div className="hidden lg:flex items-center gap-8">
                     <Nav />
-                    <Link href="/contact">
+                    <Link href="#contact">
                         <Button>Engagez-moi</Button>
                     </Link>
                 </div>

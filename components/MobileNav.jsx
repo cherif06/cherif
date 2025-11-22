@@ -6,25 +6,22 @@ import Link from 'next/link';
 import {CiMenuFries} from 'react-icons/ci';
 
 const links = [
-    {
-        name: "Accueil",
-        path: "/",
-    },
+
     {
         name: "Services",
-        path: "/services",
+        path: "#services",
     },
     {
         name: "résume",
-        path: "/resume",
+        path: "#resume",
     },
     {
         name: "Projets",
-        path: "/projets",
+        path: "#projets",
     },
     {
         name: "contact",
-        path: "/contact",
+        path: "#contact",
     },
 
 ]
@@ -33,7 +30,7 @@ const MobileNav =()=>{
     const pathname = usePathname();
     return <Sheet>
         <SheetTrigger className="flex justify-center items-center ">
-            <CiMenuFries className='text-[32px] text-accent cursor-pointer cursor-pointer'/>
+            <CiMenuFries className='text-[32px] text-accent cursor-pointer'/>
         </SheetTrigger>
         <SheetContent className="flex flex-col" >
             <div className='mt-25 mb-15 lg:mb-20 text-center text-2xl'>
