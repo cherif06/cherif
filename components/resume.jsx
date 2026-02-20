@@ -5,27 +5,27 @@ import {
     FaHtml5,
     FaCss3,
     FaJs,
-    FaReact,
     FaFigma,
-    FaNodeJs,
     FaPhp,
     FaJava,
     FaVuejs,
     FaLaravel,
     FaWordpress,
+    FaGitAlt,
+    FaBootstrap,
 } from "react-icons/fa";
 
 import {
     SiTailwindcss,
     SiNextdotjs,
-    SiC,
     SiCplusplus,
     SiHostinger,
+    SiMysql,
 } from "react-icons/si";
 
 const about = {
     title: "A propos",
-    Description:"Des informations à mon sujet",
+    Description:"Développeur Web passionné par la création d'interfaces modernes, performantes et orientées utilisateur. Je maîtrise les fondamentaux du développement web (HTML, CSS, JavaScript, PHP) et me spécialise dans l'utilisation de Laravel, Vue.js et Tailwind CSS. Autonome et rigoureux, j'ai expérience dans le déploiement de projets sur VPS et en hébergement mutualisé.",
     info: [
         {
             fieldName: 'Nom',
@@ -62,23 +62,18 @@ const about = {
 const experience={
     icon: '/assets/resume/badge.svg',
     title: "Mes experiences",
-    Description: "Pour l'instant, je n'ai eu qu'une seule opportunité de stage en entreprise, mais durant cette période, j'ai pu travailler sur plusieurs projets qui mettent en valeur mes compétences en développement web.",
+    Description: "J'ai eu l'opportunité d'effectuer deux stages en entreprise, au cours desquels j'ai pu travailler sur des projets concrets et développer mes compétences en développement web fullstack.",
     items:[
+        {
+            company: "CEGESINTL",
+            position: "Stagiaire en Développement Web",
+            duration: "Décembre 2025 - Présent (3 mois)"
+        },
         {
             company: "Enedi Consulting",
             position: "Stagiaire en Développement Web",
-            duration: "Juillet 2025 - Octobre 2025"
+            duration: "Juillet 2025 - Octobre 2025 (3 mois)"
         },
-        // {
-        //     company: "Entreprise",
-        //     position: "Poste",
-        //     duration: "2022 - Present"
-        // },
-        // {
-        //     company: "Entreprise",
-        //     position: "Poste",
-        //     duration: "2022 - Present"
-        // },
     ]
 }
 
@@ -95,7 +90,7 @@ const education={
         {
             etablissement: "Lycée Sergeant Malamine Camara",
             diplome: "Bac Scientifique (S2)",
-            duration: "2023"
+            duration: "2020 - 2023"
         },
 
     ]
@@ -107,65 +102,68 @@ const skills = {
     skillList: [
         {
             icon: <FaHtml5/>,
-            name: 'html 5',
+            name: 'HTML 5',
         },
         {
             icon: <FaCss3/>,
-            name: 'css',
+            name: 'CSS 3',
         },
         {
             icon: <FaJs/>,
-            name: 'javascript',
-        },
-        {
-            icon: <FaReact/>,
-            name: 'react',
-        },
-        {
-            icon: <FaVuejs/>,
-            name: 'vue.js',
+            name: 'JavaScript',
         },
         {
             icon: <FaPhp/>,
             name: 'PHP',
         },
         {
+            icon: <FaVuejs/>,
+            name: 'Vue.js',
+        },
+        {
             icon: <FaLaravel/>,
-            name: 'laravel',
-        },
-        {
-            icon: <FaWordpress/>,
-            name: 'wordpress',
-        },
-        {
-            icon: <SiNextdotjs/>,
-            name: 'next.js',
+            name: 'Laravel',
         },
         {
             icon: <SiTailwindcss/>,
-            name: 'tailwind.css',
+            name: 'Tailwind CSS',
         },
         {
-            icon: <FaNodeJs/>,
-            name: 'node.js',
+            icon: <SiNextdotjs/>,
+            name: 'Next.js',
+        },
+        {
+            icon: <FaBootstrap/>,
+            name: 'Bootstrap',
+        },
+        {
+            icon: <SiMysql/>,
+            name: 'MySQL',
+        },
+        {
+            icon: <FaGitAlt/>,
+            name: 'Git',
         },
         {
             icon: <FaFigma/>,
-            name: 'figma',
+            name: 'Figma',
         },
         {
             icon: <SiHostinger/>,
-            name: 'hostinger',
+            name: 'Hostinger',
+        },
+        {
+            icon: <FaWordpress/>,
+            name: 'WordPress',
         },
         {
             icon: <FaJava/>,
-            name: 'java',
+            name: 'Java',
         },
         {
             icon: <SiCplusplus/>,
-            name: 'c++',
+            name: 'C++',
         },
-        
     ]
 }
 

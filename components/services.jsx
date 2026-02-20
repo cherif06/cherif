@@ -7,37 +7,37 @@ import { Description } from "@radix-ui/react-dialog";
 const services = [
     {
         num: '01',
-        title: 'Développement back-end',
-        description: "Capable de gérer la communication avec une base de données en suivant une logique MVC (Modèle-Vue-Contrôleur). Capable de mettre en place un dashboard, de mettre en place un système d\'authentification et un systeme d'envoie d\'emails.",
+        title: 'Développement Fullstack Laravel & Vue.js',
+        description: "Conception et développement d'applications web complètes en architecture couplée (Inertia.js) ou découplée (API REST Laravel + Vue.js/Next.js). Mise en place de dashboards sécurisés, authentification OAuth (Google), automatisation d'emails et gestion de bases de données MySQL.",
         href: "",
         span: "9"
     },
     {
         num: '02',
-        title: 'Développement front-end',
-        description: 'Développement de sites web modernes (vitrines, portfolios, landing pages, blogs) avec un design responsive et une expérience utilisateur fluide.',
+        title: 'Interfaces modernes & responsive',
+        description: "Développement d'interfaces réactives et modernes avec Vue.js, Next.js, Tailwind CSS et Bootstrap. Approche Utility-First pour un code léger, maintenable et parfaitement adapté à tous les écrans.",
         href: "",
         span: "7"
     },
     {
         num: '03',
-        title: 'Déploiement',
-        description: 'Je maîtrise le déploiement d’applications fullstack ou statiques sur Hostinger.',
+        title: 'DevOps & Déploiement',
+        description: "Déploiement autonome sur VPS Hostinger et hébergement mutualisé. Configuration de Nginx, sécurisation SSL, gestion des domaines et DNS. Automatisation de la mise en production via GitHub Actions (CI/CD) et gestion sécurisée du serveur par SSH.",
         href: "",
-        span: "6"
+        span: "7"
     },
     {
         num: '04',
-        title: 'Referencement SEO',
-        description: 'Je maîtrise le référencement SEO pour améliorer la visibilité des sites web sur les moteurs de recherche.',
+        title: 'Référencement SEO',
+        description: "Optimisation du référencement naturel (SEO) afin d'améliorer la visibilité et le positionnement des sites web sur les moteurs de recherche. Indexation optimale du contenu et structuration sémantique du code.",
         href: "",
-        span: '10'
+        span: '9'
         
     },
-    {
+    { 
         num: '05',
-        title: 'Conception de maquettes via Figma',
-        description: 'Bonne maîtrise de Figma pour la lecture, l’interprétation et l’intégration de maquettes UI/UX. Capable d’extraire les éléments nécessaires à l’intégration (couleurs, typographies, espacements, images, icônes SVG) et de reproduire fidèlement un design en HTML, CSS (ou Bootstrap)',
+        title: 'Intégration de maquettes Figma',
+        description: "Bonne maîtrise de Figma pour la lecture, l'interprétation et l'intégration de maquettes UI/UX. Extraction des éléments nécessaires (couleurs, typographies, espacements, icônes SVG) et reproduction fidèle du design en HTML, CSS, Tailwind ou Bootstrap.",
         href: "",
         span: "16"
     },
