@@ -62,7 +62,7 @@ const SideNav = () => {
                             <Link
                                 href={link.path}
                                 key={index}
-                                className="group relative w-16 h-16 hover:h-12 flex items-center justify-center rounded-full bg-[#27272c]/80 hover:bg-[#00ff99] backdrop-blur-sm border border-accent/20 transition-all duration-300"
+                                className="group relative w-16 h-16 hover:h-14 hover:my-1 flex items-center justify-center rounded-full bg-[#27272c]/80 hover:bg-[#00ff99] backdrop-blur-sm border border-accent/20 transition-all duration-300"
                             >
                                 {/* Icône */}
                                 <div className="text-white text-xl group-hover:text-primary transition-all duration-300">
@@ -70,7 +70,7 @@ const SideNav = () => {
                                 </div>
                                 
                                 {/* Tooltip au hover */}
-                                <div className="absolute -left-20 w-28 h-12 flex items-center -z-10 bg-accent text-primary px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+                                <div className="absolute -left-20 w-28 h-14 flex items-center -z-10 bg-accent text-primary px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
                                     {link.name}
                                 </div>
                             </Link>

@@ -67,7 +67,7 @@ const experience={
         {
             company: "CEGESINTL",
             position: "Stagiaire en Développement Web",
-            duration: "Décembre 2025 - Présent (3 mois)"
+            duration: "Décembre 2025 - Février 2026 (3 mois)"
         },
         {
             company: "Enedi Consulting",
