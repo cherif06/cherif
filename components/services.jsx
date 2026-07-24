@@ -7,15 +7,15 @@ import { Description } from "@radix-ui/react-dialog";
 const services = [
     {
         num: '01',
-        title: 'Développement Fullstack Laravel & Vue.js',
-        description: "Conception et développement d'applications web complètes en architecture couplée (Inertia.js) ou découplée (API REST Laravel + Vue.js/Next.js). Mise en place de dashboards sécurisés, authentification OAuth (Google), automatisation d'emails et gestion de bases de données MySQL.",
+        title: "Développement d'API avec Laravel",
+        description: "Conception et mise en place d'API RESTful robustes, sécurisées et performantes avec le framework Laravel. Architecture évolutive, authentification JWT/Sanctum, intégration de services tiers et gestion efficace des bases de données.",
         href: "",
         span: "9"
     },
     {
         num: '02',
         title: 'Interfaces modernes & responsive',
-        description: "Développement d'interfaces réactives et modernes avec Vue.js, Next.js, Tailwind CSS et Bootstrap. Approche Utility-First pour un code léger, maintenable et parfaitement adapté à tous les écrans.",
+        description: "Développement d'interfaces réactives et modernes avec Vue.js, Nuxt.js et Tailwind CSS. Approche Utility-First pour un code léger, maintenable et parfaitement adapté à tous les écrans.",
         href: "",
         span: "7"
     },
@@ -28,16 +28,15 @@ const services = [
     },
     {
         num: '04',
-        title: 'Référencement SEO',
-        description: "Optimisation du référencement naturel (SEO) afin d'améliorer la visibilité et le positionnement des sites web sur les moteurs de recherche. Indexation optimale du contenu et structuration sémantique du code.",
+        title: 'Développement mobile',
+        description: "Conception et développement d'applications mobiles multiplateformes (iOS & Android) fluides et performantes avec Flutter. Intégration d'interfaces modernes, connexion fluide aux API back-end et optimisation de l'expérience utilisateur.",
         href: "",
-        span: '9'
-        
+        span: "9"
     },
-    { 
+    {
         num: '05',
-        title: 'Intégration de maquettes Figma',
-        description: "Bonne maîtrise de Figma pour la lecture, l'interprétation et l'intégration de maquettes UI/UX. Extraction des éléments nécessaires (couleurs, typographies, espacements, icônes SVG) et reproduction fidèle du design en HTML, CSS, Tailwind ou Bootstrap.",
+        title: 'Référencement SEO & Google Analytics',
+        description: "Optimisation du référencement naturel (SEO) pour maximiser la visibilité et le positionnement sur les moteurs de recherche. Intégration et configuration de Google Analytics pour le suivi précis du trafic, analyse d'audience et structuration sémantique.",
         href: "",
         span: "16"
     },

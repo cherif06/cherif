@@ -15,11 +15,14 @@ const Hero = () => {
             Salut c'est <br /> <span className="text-accent">Cherif Bakhoum</span>
           </h2>
           <p className="max-w-[600px] mb-9 text-white/80">
-            Développeur Web passionné par la création d'interfaces modernes, performantes et orientées utilisateur. Je maîtrise les fondamentaux du développement web (HTML, CSS, JavaScript, PHP) et me spécialise dans l'utilisation de Laravel, Vue.js et Tailwind CSS. Autonome et rigoureux, curieux et motivé, je souhaite mettre ma réactivité, mon sens de l'analyse et ma soif d'apprentissage au service de projets ambitieux.
+            Développeur Full-Stack passionné par la création dʼinterfaces modernes, performantes et orientées utilisateur. Je maîtrise le développement
+            d'applications web et mobiles en combinant la puissance de Laravel et Supabase en backend avec la réactivité de Vue.js, Tailwind CSS et
+            Flutter en frontend. Autonome et rigoureux, jʼai déjà mené à bien la conception et le déploiement de projets complets, du cloud aux stores
+            mobiles.
           </p>
           <div className="flex flex-col lg:flex-row items-center gap-8">
             <Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
-              <a href="/assets/CV_2026-02-19_Cherif_Bakhoum.pdf" download>Telecharger mon CV</a>
+              <a href="/assets/CV_2026-07-14_Cherif_Bakhoum.pdf" download>Telecharger mon CV</a>
               <FiDownload className="text-xl" />
             </Button> 
             <div className="mb-8 lg:mb-0">

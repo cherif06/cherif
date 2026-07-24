@@ -13,6 +13,7 @@ import {
     FaWordpress,
     FaGitAlt,
     FaBootstrap,
+    FaDocker,
 } from "react-icons/fa";
 
 import {
@@ -21,6 +22,10 @@ import {
     SiCplusplus,
     SiHostinger,
     SiMysql,
+    SiNuxtdotjs,
+    SiFlutter,
+    SiSupabase,
+    SiArduino,
 } from "react-icons/si";
 
 const about = {
@@ -35,9 +40,9 @@ const about = {
             fieldName: 'Numéro',
             fieldValue: "(+221) 77 693 12 31",
         },
-        {
+        { 
             fieldName: 'Experience',
-            fieldValue: "2+ années",
+            fieldValue: "3+ années",
         },
         // {
         //     fieldName: '',
@@ -61,13 +66,13 @@ const about = {
 
 const experience={
     icon: '/assets/resume/badge.svg',
-    title: "Mes experiences",
+    title: "Mes expériences",
     Description: "J'ai eu l'opportunité d'effectuer deux stages en entreprise, au cours desquels j'ai pu travailler sur des projets concrets et développer mes compétences en développement web fullstack.",
     items:[
         {
             company: "CEGESINTL",
             position: "Stagiaire en Développement Web",
-            duration: "Décembre 2025 - Février 2026 (3 mois)"
+            duration: "Décembre 2025 - Mars 2026 (3 mois)"
         },
         {
             company: "Enedi Consulting",
@@ -83,9 +88,9 @@ const education={
     Description: "Voici mon parcours d'apprentissage au fil des années",
     items:[
         {
-            etablissement: "Institut Africain de management",
-            diplome: "License en Informatique de gestion",
-            duration: "2023 - Présent"
+            etablissement: "Institut Africain de Management",
+            diplome: "Licence en Informatique de gestion",
+            duration: "2023 - 2026"
         },
         {
             etablissement: "Lycée Sergeant Malamine Camara",
@@ -100,14 +105,7 @@ const skills = {
     title: "Mes Compétences",
     Description: "Voici les différents langages et outils que je suis capable de manipuler.",
     skillList: [
-        {
-            icon: <FaHtml5/>,
-            name: 'HTML 5',
-        },
-        {
-            icon: <FaCss3/>,
-            name: 'CSS 3',
-        },
+
         {
             icon: <FaJs/>,
             name: 'JavaScript',
@@ -119,6 +117,10 @@ const skills = {
         {
             icon: <FaVuejs/>,
             name: 'Vue.js',
+        },
+        {
+            icon: <SiNuxtdotjs/>,
+            name: 'Nuxt.js',
         },
         {
             icon: <FaLaravel/>,
@@ -133,16 +135,24 @@ const skills = {
             name: 'Next.js',
         },
         {
-            icon: <FaBootstrap/>,
-            name: 'Bootstrap',
+            icon: <SiFlutter/>,
+            name: 'Flutter',
         },
         {
             icon: <SiMysql/>,
             name: 'MySQL',
         },
         {
+            icon: <SiSupabase/>,
+            name: 'Supabase',
+        },
+        {
             icon: <FaGitAlt/>,
             name: 'Git',
+        },
+        {
+            icon: <FaDocker/>,
+            name: 'Docker',
         },
         {
             icon: <FaFigma/>,
@@ -157,12 +167,12 @@ const skills = {
             name: 'WordPress',
         },
         {
-            icon: <FaJava/>,
-            name: 'Java',
-        },
-        {
             icon: <SiCplusplus/>,
             name: 'C++',
+        },
+        {
+            icon: <SiArduino/>,
+            name: 'Arduino',
         },
     ]
 }
@@ -184,7 +194,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 
-const Resume = () =>{
+const  Resume = () =>{
     return ( 
     <motion.div 
     initial={{opacity: 0}} 

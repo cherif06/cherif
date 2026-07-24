@@ -19,7 +19,7 @@ import WorkSliderBtns from '@/components/WorkSliderBtns';
 const projets = [
     {
         num: '01',
-        category: 'SaaS – IA',
+        category: 'SaaS / IA',
         title: 'MaamCV',
         description: "Plateforme SaaS de génération de CV assistée par l'IA. Application découplée Laravel (API) + Vue.js, avec authentification OAuth (Google), paiement PayDunya, déploiement CI/CD via GitHub Actions sur VPS Hostinger.",
         Stack: [{ name: "Laravel"}, {name: "Vue.js"}, {name: "Tailwind CSS"}, {name: "OAuth"}, {name: "PayDunya"}, {name: "VPS"}, {name: "GitHub Actions"}],
@@ -29,12 +29,12 @@ const projets = [
     },
     {
         num: '02',
-        category: 'frontend',
-        title: 'Mon portfolio',
-        description: "Vitrine numérique dynamique pour exposer mes projets. Architecture de composants réutilisables avec Next.js, Tailwind CSS, animations fluides et code optimisé pour le référencement.",
-        Stack: [{ name: "Next.js"}, {name: "Tailwind CSS"}, {name: "Vercel"}],
-        image: '/assets/projet2.png',
-        live:'https://cherif06.vercel.app/',
+        category: 'SaaS / IoT',
+        title: 'Projet VidO',
+        description: "Plateforme numérique intelligente dédiée à l'automatisation et l'optimisation des interventions de services à la demande. Interface réactive combinée à un tableau de bord d'administration pour la gestion en temps réel, le suivi de données télémétriques et la planification automatisée des flux.",
+        Stack: [{ name: "Laravel"}, {name: "Supabase"}, {name:"C++"}, {name:"Arduino"}, {name: "PayDunya"}, {name:"Flutter"}, {name: "Nuxt.js"}, {name: "Tailwind CSS"}],
+        image: '/assets/projetVido.png',
+        live:'',
         github:'',
     },
     {
@@ -55,6 +55,16 @@ const projets = [
         Stack: [{ name: "Laravel"}, {name: "Vue.js"}, {name: "Inertia.js"}, {name: "Tailwind CSS"}, {name:"Hostinger"}],
         image: '/assets/projet4.png',
         live:'https://cegesintl.com/',
+        github:'',
+    },
+    {
+        num: '02',
+        category: 'frontend',
+        title: 'Mon portfolio',
+        description: "Vitrine numérique dynamique pour exposer mes projets. Architecture de composants réutilisables avec Next.js, Tailwind CSS, animations fluides et code optimisé pour le référencement.",
+        Stack: [{ name: "Next.js"}, {name: "Tailwind CSS"}, {name: "Vercel"}],
+        image: '/assets/projet2.png',
+        live:'https://cherif06.vercel.app/',
         github:'',
     },
 ]
@@ -101,10 +111,10 @@ const Projets = () =>{
                             <ul className='flex gap-4 w-full flex-wrap'>
                                 {project.Stack.map((item,index)=>{
                                     return ( 
-                                        <li key={index} className='text-xl text-accent inline'>
+                                        <li key={index} className='text-lg text-accent inline'>
                                             {item.name}
                                             {index !== project.Stack.length - 1 && ","}
-                                        </li> 
+                                        </li>
                                     );
                                 })}
                             </ul>
