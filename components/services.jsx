@@ -1,137 +1,272 @@
 "use client";
 
-import {BsArrowDownRight } from "react-icons/bs";
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  BsServer,
+  BsCpu,
+  BsGlobe2,
+  BsPhone,
+  BsCloudCheck,
+  BsGraphUpArrow,
+  BsArrowUpRight,
+} from "react-icons/bs";
 import Link from "next/link";
-import { Description } from "@radix-ui/react-dialog";
 
 const services = [
-    {
-        num: '01',
-        title: "Développement d'API avec Laravel",
-        description: "Conception et mise en place d'API RESTful robustes, sécurisées et performantes avec le framework Laravel. Architecture évolutive, authentification JWT/Sanctum, intégration de services tiers et gestion efficace des bases de données.",
-        href: "",
-        span: "9"
-    },
-    {
-        num: '02',
-        title: 'Interfaces modernes & responsive',
-        description: "Développement d'interfaces réactives et modernes avec Vue.js, Nuxt.js et Tailwind CSS. Approche Utility-First pour un code léger, maintenable et parfaitement adapté à tous les écrans.",
-        href: "",
-        span: "7"
-    },
-    {
-        num: '03',
-        title: 'DevOps & Déploiement',
-        description: "Déploiement autonome sur VPS Hostinger et hébergement mutualisé. Configuration de Nginx, sécurisation SSL, gestion des domaines et DNS. Automatisation de la mise en production via GitHub Actions (CI/CD) et gestion sécurisée du serveur par SSH.",
-        href: "",
-        span: "7"
-    },
-    {
-        num: '04',
-        title: 'Développement mobile',
-        description: "Conception et développement d'applications mobiles multiplateformes (iOS & Android) fluides et performantes avec Flutter. Intégration d'interfaces modernes, connexion fluide aux API back-end et optimisation de l'expérience utilisateur.",
-        href: "",
-        span: "9"
-    },
-    {
-        num: '05',
-        title: 'Référencement SEO & Google Analytics',
-        description: "Optimisation du référencement naturel (SEO) pour maximiser la visibilité et le positionnement sur les moteurs de recherche. Intégration et configuration de Google Analytics pour le suivi précis du trafic, analyse d'audience et structuration sémantique.",
-        href: "",
-        span: "16"
-    },
-]
+  {
+    num: "01",
+    icon: BsServer,
+    category: "Backend & Scalabilité",
+    title: "Architecture Backend & APIs RESTful",
+    description:
+      "Conception d'architectures backend robustes, sécurisées et hautement scalables pour alimenter vos applications web et mobiles.",
+    points: [
+      "Conception et développement d'APIs RESTful sécurisées (JWT, Sanctum, OAuth 2.0).",
+      "Optimisation des performances via le caching et les files d'attente (Queues).",
+      "Modélisation, structuration et optimisation de bases de données relationnelles.",
+      "Architectures modulaires et gestion du Multi-tenancy.",
+    ],
+    tags: ["Laravel", "Redis", "MySQL", "REST API", "OAuth 2.0"],
+  },
+  {
+    num: "02",
+    icon: BsCpu,
+    category: "IA & Automatisation",
+    title: "Intégration d'IA & Services Tiers",
+    description:
+      "Connexion de modèles d'intelligence artificielle et intégration d'APIs pour automatiser vos processus et enrichir vos applications.",
+    points: [
+      "Intégration de modèles de langage (LLMs) et solutions d'IA générative.",
+      "Intégration de passerelles de paiement en ligne sécurisées (PayDunya, Stripe).",
+      "Connexion d'APIs tierces, webhooks et services de messagerie / notification.",
+      "Automatisation de flux de travail et traitement asynchrone.",
+    ],
+    tags: ["OpenRouter", "LLMs", "PayDunya", "Stripe", "Webhooks", "APIs"],
+  },
+  {
+    num: "03",
+    icon: BsGlobe2,
+    category: "Fullstack & SaaS",
+    title: "Développement Web Fullstack & SaaS",
+    description:
+      "Création d'applications web modernes, réactives et performantes offrant une expérience utilisateur fluide et intuitive.",
+    points: [
+      "Développement d'applications Single Page (SPA) et Server-Side Rendered (SSR).",
+      "Conception de dashboards d'administration et plateformes interactives.",
+      "Interfaces utilisateur ergonomiques et responsives avec Tailwind CSS.",
+      "Architecture logicielle propre garantissant maintenabilité et évolutivité.",
+    ],
+    tags: ["Nuxt 3", "Vue.js", "Inertia.js", "Laravel", "Tailwind CSS"],
+  },
+  {
+    num: "04",
+    icon: BsPhone,
+    category: "Mobile & IoT",
+    title: "Applications Mobiles & Solutions IoT",
+    description:
+      "Développement d'applications mobiles cross-platform et intégration de flux de données connectées en temps réel.",
+    points: [
+      "Développement d'applications mobiles multiplateformes (iOS & Android).",
+      "Communication sécurisée avec des équipements et capteurs connectés via API.",
+      "Synchronisation et traitement de données télémétriques en temps réel.",
+      "Gestion des notifications push, alertes instantanées et réactivité UI.",
+    ],
+    tags: ["Flutter", "iOS & Android", "IoT", "Supabase", "Temps Réel"],
+  },
+  {
+    num: "05",
+    icon: BsCloudCheck,
+    category: "DevOps & Cloud",
+    title: "DevOps, CI/CD & Déploiement Cloud",
+    description:
+      "Automatisation du cycle de déploiement et configuration d'infrastructures résilientes, sécurisées et monitorées.",
+    points: [
+      "Mise en place de pipelines d'intégration et déploiement continus (CI/CD).",
+      "Conteneurisation des applications et environnements avec Docker.",
+      "Configuration et sécurisation de serveurs Linux (Nginx, SSL, SSH).",
+      "Déploiement sur serveurs VPS et plateformes cloud modernes.",
+    ],
+    tags: ["Dokploy", "Docker", "CI/CD", "Linux", "Nginx", "GitHub Actions"],
+  },
+  {
+    num: "06",
+    icon: BsGraphUpArrow,
+    category: "Performance & SEO",
+    title: "Optimisation de Performance & SEO",
+    description:
+      "Amélioration de la vitesse de chargement, de l'accessibilité et de la visibilité naturelle de vos sites sur les moteurs de recherche.",
+    points: [
+      "Optimisation des Core Web Vitals, réduction du TTFB et compression d'actifs.",
+      "Référencement naturel technique (SEO sémantique, métadonnées structurées).",
+      "Intégration d'outils d'analytique pour le suivi de trafic et de conversion.",
+      "Stratégies de mise en cache et temps de rendu ultra-rapides.",
+    ],
+    tags: ["SEO Technique", "Core Web Vitals", "Google Analytics", "Caching"],
+  },
+];
 
-import {motion} from "framer-motion";
-
-const getColSpanClass = (span) => {
-    const spanMap = {
-        '9': 'md:col-span-9',
-        '10': 'md:col-span-10',
-        '7': 'md:col-span-7',
-        '6': 'md:col-span-6',
-        '16': 'md:col-span-16',
-    };
-    return spanMap[span] || 'md:col-span-4';
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
 };
 
-const Services = () =>{
-    return ( 
-    <section className="flex flex-col items-center lg:items-start">
-        <span className="text-accent mb-2 sm:text-lg font-medium">Ce que je peux faire pour vous</span>
-        {/* Barre animée */}
-        <div className="w-[200px] sm:w-[320px] h-0.5 bg-white/10 rounded-full overflow-hidden mb-3 relative">
-            <motion.div 
+const Services = () => {
+  return (
+    <section
+      className="bg-[url('/assets/bg2.png')] bg-repeat-y"
+      id="services"
+    >
+      <div className="min-h-screen py-12 flex flex-col justify-center max-w-7xl px-4 sm:px-8 sm:mx-auto">
+        {/* En-tête de section */}
+        <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center md:items-start mb-12"
+        >
+            <span className="text-accent mb-2 text-lg font-medium tracking-wide">
+            Ce que je peux vous apporter
+            </span>
+            <div className="w-full h-[1px] bg-white/10 rounded-full overflow-hidden mb-3 relative">
+            <motion.div
                 className="h-full bg-accent rounded-full absolute left-1/2 -translate-x-1/2"
-                initial={{ width: '0%' }}
-                animate={{ width: '100%' }}
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
                 transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    repeatType: "reverse",
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "reverse",
                 }}
             />
-        </div>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl mb-4 md:mb-8 font-bold">Mes Services</h1>
-        
-        
-        <div className="min-h-[80vh] flex flex-col justify-center pt-16 xl:py-0" id="services">
-                <motion.div 
-                initial={{opacity: 0}} 
-                animate={{
-                    opacity: 1,
-                    transition: {delay: 2.4, duration: 0.4, ease: "easeIn"}
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+            Mes Services
+            </h1>
+        </motion.div>
 
-                }}
-                className="grid grid-cols-1 md:grid-cols-16 gap-[30px] "
+        {/* Grille des services avec Glassmorphism */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+            const IconComponent = service.icon;
+
+            return (
+                <motion.div
+                key={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-60px" }}
+                whileHover={{ y: -6 }}
+                className="group relative flex flex-col justify-between rounded-3xl bg-[#16161c]/30 backdrop-blur-xl border-[1px] border-[#00ff99]/20 p-7 sm:p-8 transition-all duration-500 hover:border-[#00ff99] hover:shadow-[0_20px_50px_rgba(0,255,153,0.12)]"
                 >
-                {services.map((service,index)=>{
-                    return (
-                    <div key={index} className={`flex flex-col bg-[#27272c] px-6 py-4 rounded-2xl group ${getColSpanClass(service.span)} relative overflow-hidden`}  >
-                        {/* Bordure animée au hover */}
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl">
-                            <svg 
-                                className="w-full h-full absolute" 
-                                xmlns="http://www.w3.org/2000/svg">
-                                <motion.rect
-                                    x="1"
-                                    y="1"
-                                    width="calc(100% - 2px)"
-                                    height="calc(100% - 2px)"
-                                    rx="16"
-                                    stroke="#00ff99"
-                                    strokeWidth="2"
-                                    fill="none"
-                                    strokeDasharray="20 60 50 80 40 125 90 200"
-                                    animate={{
-                                        strokeDashoffset: [0, -665],
-                                    }}
-                                    transition={{
-                                        duration: 8,
-                                        repeat: Infinity,
-                                        ease: "linear"
-                                    }}
-                                />
-                            </svg>
-                        </div>
-                        
-                        <div className="w-full flex justify-between items-center relative z-10">
-                            <div className="text-4xl font-extrabold text-outline text-transparent mb-4 transition-all duration-500">
-                                {service.num}
-                            </div>
-                            {/* <Link href={service.href} className="w-[100px] h-[50px] rounded-full bg-white fleche duration-500 flex justify-center items-center hover:-rotate-45">
-                              <BsArrowDownRight className="text-primary text-3xl" />
-                            </Link> */}
-                        </div>
-                        <h2 className="text-[30px] font-bold leading-none text-white group-hover-vert mb-4 transition-all duration-500 relative z-10">{service.title}</h2>
-                        <p className="text-white/60 text-[13px] relative z-10" >{service.description}</p>
+                {/* Bordure SVG animée au hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl z-20">
+                    <svg
+                    className="w-full h-full absolute"
+                    xmlns="http://www.w3.org/2000/svg"
+                    >
+                    <motion.rect
+                        x="0"
+                        y="0"
+                        width="calc(100%)"
+                        height="calc(100%)"
+                        rx="24"
+                        stroke="#00ff99"
+                        strokeWidth="2"
+                        fill="none"
+                        strokeDasharray="20 60 50 80 40 125 90 200"
+                        animate={{
+                        strokeDashoffset: [0, -665],
+                        }}
+                        transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "linear",
+                        }}
+                    />
+                    </svg>
+                </div>
+
+                <div>
+                    {/* Header de la carte : Numéro, Badges & Icône */}
+                    <div className="flex items-center justify-between gap-3 mb-6 relative z-10">
+                    <div className="flex items-center gap-2.5">
+                        <span className="px-3 py-1.5 rounded-lg bg-[#121217]/90 backdrop-blur-md border border-white/10 text-xs font-mono font-bold text-accent shadow-md">
+                        {service.num}
+                        </span>
+                        <span className="px-3 py-1.5 rounded-lg bg-[#121217]/90 backdrop-blur-md border border-white/10 text-xs font-medium text-white/90 capitalize shadow-md">
+                        {service.category}
+                        </span>
                     </div>
-                    );
-                })}
+
+                    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-primary group-hover:shadow-[0_0_15px_rgba(0,255,153,0.4)] transition-all duration-300">
+                        <IconComponent />
+                    </div>
+                    </div>
+
+                    {/* Titre du service */}
+                    <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-300 relative z-10">
+                    {service.title}
+                    </h2>
+
+                    {/* Description synthétique */}
+                    <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-5 relative z-10">
+                    {service.description}
+                    </p>
+
+                    {/* Liste à puces avec glowing green dots */}
+                    <ul className="space-y-2.5 mb-6 relative z-10">
+                    {service.points.map((point, pIndex) => (
+                        <li key={pIndex} className="flex items-start gap-2.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_#00ff99] shrink-0 mt-2" />
+                        <p className="text-white/80 text-xs leading-relaxed">
+                            {point}
+                        </p>
+                        </li>
+                    ))}
+                    </ul>
+                </div>
+
+                <div>
+                    {/* Badges de Technologies */}
+                    <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10 relative z-10">
+                    {service.tags.map((tag, tIndex) => (
+                        <span
+                        key={tIndex}
+                        className="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-white/80 group-hover:border-accent/30 group-hover:text-white transition-all"
+                        >
+                        {tag}
+                        </span>
+                    ))}
+                    </div>
+
+                    {/* Bouton Contact / Discuter du projet */}
+                    <div className="mt-5 pt-3">
+                    <Link
+                        href="#contact"
+                        className="inline-flex items-center gap-2 text-xs font-semibold text-accent group-hover:underline"
+                    >
+                        <span>Lancer un projet</span>
+                        <BsArrowUpRight className="text-sm transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </Link>
+                    </div>
+                </div>
                 </motion.div>
-        </div> 
+            );
+            })}
+        </div>
+      </div>
     </section>
-    );
+  );
 };
 
 export default Services;

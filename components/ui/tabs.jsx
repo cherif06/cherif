@@ -40,7 +40,7 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "inline-flex items-center w-full bg-[#27272c] justify-center whitespace-nowrap text-white rounded-lg p-3 text-base font-medium ring-offset-white transition-all disabled:pointer-events-none disabled:opacity-50 btnresume",
+        "inline-flex items-center w-full justify-center whitespace-nowrap rounded-2xl p-4 text-base font-medium ring-offset-background transition-all duration-300 disabled:pointer-events-none disabled:opacity-50 btnresume bg-[#16161c]/40 backdrop-blur-xl border border-white/10 text-white/80 hover:text-white hover:border-[#00ff99]/40 data-[state=active]:bg-accent data-[state=active]:text-primary data-[state=active]:font-bold data-[state=active]:border-accent data-[state=active]:shadow-[0_0_25px_rgba(0,255,153,0.35)]",
         className
       )}
       {...props} />
@@ -55,7 +55,7 @@ function TabsContent({
     <TabsPrimitive.Content
       data-slot="tabs-content"
       className={cn(
-        "min-h-[480px] ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300", className)}
+        "ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300", className)}
       {...props} />
   );
 }

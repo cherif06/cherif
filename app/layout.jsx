@@ -6,6 +6,7 @@ import SideNav from "@/components/SideNav";
 // import StairTransition from "@/components/StairTransition";
 import "@/lib/localStorage";
 import Script from "next/script";
+import CustomCursor from "@/components/CustomCursor";
 
 const jetBrainsMonoFont = jetBrainsMono({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
         `}
       </Script>
       <body className={`${jetBrainsMonoFont.variable} `}>
+        <CustomCursor />
         <Header/>
         <SideNav />
         {/* <StairTransition /> */}

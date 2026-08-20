@@ -8,15 +8,15 @@ import Contact from "@/components/contact";
 
 const Home = () => {
   return (
-  <div className="flex flex-col space-y-12 sm:space-y-40 max-w-7xl px-4 sm:px-8 sm:mx-auto">
+  <div className="flex flex-col space-y-12 sm:space-y-30">
     
     <Hero/>
+
+    <Projets/>
 
     <Services/>
 
     <Resume/>
-
-    <Projets/>
 
     <Contact/>
 

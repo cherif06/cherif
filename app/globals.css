@@ -77,7 +77,7 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
-  --color-primary: #1c1C22;
+  --color-primary: #121217;
   --color-accent: #00ff99;
   --color-accent-hover: #00e187;
 }
@@ -160,6 +160,7 @@
 
       html{
         scroll-behavior: smooth;
+        overflow-x: clip;
       }
 
       body {
@@ -167,8 +168,14 @@
         background-color: var(--color-primary);
         color: white;
         line-height: 2;
-        
+        overflow-x: clip;
       }
+      @media (min-width: 768px) {
+        *, *::before, *::after, html, body, a, button, input, textarea, select {
+          cursor: none !important;
+        }
+      }
+
       * {
         box-sizing: border-box;
       }
@@ -256,18 +263,54 @@
       }
 
       
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
+      @keyframes gradient-move {
+        0% {
+          background-position: 200% center;
+          filter: drop-shadow(0 0 1px rgba(0, 255, 153, 0.1));
         }
-        to {
-          transform: rotate(360deg);
+        50% {
+          filter: drop-shadow(0 0 8px rgba(0, 255, 153, 0.65)) drop-shadow(0 0 18px rgba(0, 255, 153, 0.35));
+        }
+        100% {
+          background-position: -200% center;
+          filter: drop-shadow(0 0 1px rgba(0, 255, 153, 0.1));
         }
       }
-      
-      /* .group:hover {
-        animation: pulse-glow 1350ms infinite;
-      } */
 
+      .text-gradient-accent {
+        background: linear-gradient(
+          90deg,
+          #ffffff 0%,
+          #ffffff 25%,
+          #ffffff 50%,
+          #00ff99 75%,
+          #00e187 100%
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+        will-change: background-position, filter;
+        animation: gradient-move 6s linear infinite;
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .animate-marquee {
+        display: flex;
+        width: max-content;
+        animation: marquee 30s linear infinite;
+      }
+
+      .animate-marquee:hover {
+        animation-play-state: paused;
+      }
     }
     
