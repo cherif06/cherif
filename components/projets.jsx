@@ -109,29 +109,16 @@ const projets = [
   }
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
-
 const Projets = () => {
   return (
     <section className="bg-[url('/assets/bg2.png')] bg-repeat-y" id="projets">
       <div className="min-h-screen py-12 flex flex-col justify-center  max-w-7xl px-4 sm:px-8 sm:mx-auto">
         {/* En-tête de section */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col items-center md:items-start mb-12"
         >
           <span className="text-accent mb-2 text-lg font-medium tracking-wide">
@@ -154,7 +141,7 @@ const Projets = () => {
           </h1>
         </motion.div>
 
-        {/* Liste des Cards pleine largeur (Full Width / Showcase layout) */}
+        {/* Liste des Cards pleine largeur - Apparition du bas vers le haut au scroll */}
         <div className="flex flex-col gap-12">
           {projets.map((project, index) => {
             const isEven = index % 2 === 1;
@@ -162,12 +149,12 @@ const Projets = () => {
             return (
               <motion.div
                 key={index}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-80px" }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                 whileHover={{ y: -6 }}
-                className="group relative w-full rounded-3xl bg-[#16161c]/30 backdrop-blur-xl border-[1px] border-[#00ff99]/20 overflow-hidden transition-all duration-500 hover:border-[#00ff99]  hover:shadow-[0_20px_50px_rgba(0,255,153,0.12)]"
+                className="group relative w-full rounded-3xl bg-[#16161c]/30 backdrop-blur-xl border-[1px] border-[#00ff99]/20 overflow-hidden transition-all duration-300 hover:border-[#00ff99] hover:shadow-[0_20px_50px_rgba(0,255,153,0.12)]"
               >
                 {/* Bordure SVG animée au hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl z-20">
@@ -198,24 +185,23 @@ const Projets = () => {
                 </div>
 
                 <div
-                  className={`flex flex-col ${
-                    isEven ? "lg:flex-row-reverse" : "lg:flex-row"
-                  } items-stretch justify-between w-full min-h-[420px] lg:min-h-[480px]`}
+                  className={`flex flex-col ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"
+                    } items-stretch justify-between w-full min-h-[420px] lg:min-h-[480px]`}
                 >
                   {/* Image Showcase occupant toute la moitié sans padding */}
                   <div className="w-full lg:w-5/12 relative min-h-[280px] sm:min-h-[340px] lg:min-h-full overflow-hidden bg-[#121217]">
-                      <Image
-                        fill
-                        src={project.imageMobile}
-                        alt={project.title}
-                        className="lg:hidden object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      />
-                      <Image
-                        src={project.image}
-                        fill
-                        alt={project.title}
-                        className="hidden lg:block object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      />
+                    <Image
+                      fill
+                      src={project.imageMobile}
+                      alt={project.title}
+                      className="lg:hidden object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
+                    <Image
+                      src={project.image}
+                      fill
+                      alt={project.title}
+                      className="hidden lg:block object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#121217]/70 via-transparent to-transparent lg:hidden" />
 
                     {/* Badges sur l'image */}
@@ -232,7 +218,6 @@ const Projets = () => {
                   {/* Contenu textuel & Infos du projet */}
                   <div className="w-full lg:w-7/12 p-6 md:p-8 lg:p-10 flex flex-col justify-between">
                     <div>
-
                       <h2 className="text-2xl sm:text-3xl font-bold text-white mb-5 group-hover:text-accent transition-colors duration-300">
                         {project.title}
                       </h2>
@@ -240,8 +225,10 @@ const Projets = () => {
                       {/* Bullet points avec puces vertes lumineuses (Glowing Green Dots) */}
                       <ul className="space-y-3 mb-6">
                         {project.points.map((point, pIndex) => (
-                          <li key={pIndex} className="flex items-start gap-3">
-                            {/* Puce verte néon avec glow */}
+                          <li
+                            key={pIndex}
+                            className="flex items-start gap-3"
+                          >
                             <span className="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_#00ff99] shrink-0 mt-2" />
                             <p className="text-white/80 text-xs sm:text-sm leading-relaxed">
                               {point}

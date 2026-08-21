@@ -306,11 +306,11 @@ const Resume = () => {
                             </div>
 
                             <div>
-                              <div className="flex items-center justify-between gap-2 mb-2">
+                              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 mb-2.5">
                                 <span className="text-accent text-xs sm:text-sm font-mono font-medium">
                                   {item.duration}
                                 </span>
-                                <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/70">
+                                <span className="self-center sm:self-auto text-[11px] px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/70 w-fit">
                                   {item.contract}
                                 </span>
                               </div>
@@ -439,7 +439,7 @@ const Resume = () => {
 
                 <div className="relative">
                   <div className="py-3 pr-4">
-                    <ul className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-4">
+                    <ul className="w-full grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-4">
                       {skills.skillList.map((skill, index) => {
                         return (
                           <li key={index} className="w-full">

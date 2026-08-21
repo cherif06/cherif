@@ -106,18 +106,6 @@ const services = [
   },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
 const Services = () => {
   return (
     <section
@@ -127,142 +115,142 @@ const Services = () => {
       <div className="min-h-screen py-12 flex flex-col justify-center max-w-7xl px-4 sm:px-8 sm:mx-auto">
         {/* En-tête de section */}
         <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-center md:items-start mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col items-center md:items-start mb-12"
         >
-            <span className="text-accent mb-2 text-lg font-medium tracking-wide">
+          <span className="text-accent mb-2 text-lg font-medium tracking-wide">
             Ce que je peux vous apporter
-            </span>
-            <div className="w-full h-[1px] bg-white/10 rounded-full overflow-hidden mb-3 relative">
+          </span>
+          <div className="w-full h-[1px] bg-white/10 rounded-full overflow-hidden mb-3 relative">
             <motion.div
-                className="h-full bg-accent rounded-full absolute left-1/2 -translate-x-1/2"
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{
+              className="h-full bg-accent rounded-full absolute left-1/2 -translate-x-1/2"
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{
                 duration: 1.5,
                 repeat: Infinity,
                 repeatType: "reverse",
-                }}
+              }}
             />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             Mes Services
-            </h1>
+          </h1>
         </motion.div>
 
-        {/* Grille des services avec Glassmorphism */}
+        {/* Grille des services - Apparition du bas vers le haut une par une */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => {
+          {services.map((service, index) => {
             const IconComponent = service.icon;
 
             return (
-                <motion.div
+              <motion.div
                 key={index}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
+                initial={{ opacity: 0, y: 45 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.12 }}
                 whileHover={{ y: -6 }}
-                className="group relative flex flex-col justify-between rounded-3xl bg-[#16161c]/30 backdrop-blur-xl border-[1px] border-[#00ff99]/20 p-7 sm:p-8 transition-all duration-500 hover:border-[#00ff99] hover:shadow-[0_20px_50px_rgba(0,255,153,0.12)]"
-                >
+                className="group relative flex flex-col justify-between rounded-3xl bg-[#16161c]/30 backdrop-blur-xl border-[1px] border-[#00ff99]/20 p-7 sm:p-8 transition-all duration-300 hover:border-[#00ff99] hover:shadow-[0_20px_50px_rgba(0,255,153,0.12)]"
+              >
                 {/* Bordure SVG animée au hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl z-20">
-                    <svg
+                  <svg
                     className="w-full h-full absolute"
                     xmlns="http://www.w3.org/2000/svg"
-                    >
+                  >
                     <motion.rect
-                        x="0"
-                        y="0"
-                        width="calc(100%)"
-                        height="calc(100%)"
-                        rx="24"
-                        stroke="#00ff99"
-                        strokeWidth="2"
-                        fill="none"
-                        strokeDasharray="20 60 50 80 40 125 90 200"
-                        animate={{
+                      x="0"
+                      y="0"
+                      width="calc(100%)"
+                      height="calc(100%)"
+                      rx="24"
+                      stroke="#00ff99"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeDasharray="20 60 50 80 40 125 90 200"
+                      animate={{
                         strokeDashoffset: [0, -665],
-                        }}
-                        transition={{
+                      }}
+                      transition={{
                         duration: 8,
                         repeat: Infinity,
                         ease: "linear",
-                        }}
+                      }}
                     />
-                    </svg>
+                  </svg>
                 </div>
 
                 <div>
-                    {/* Header de la carte : Numéro, Badges & Icône */}
-                    <div className="flex items-center justify-between gap-3 mb-6 relative z-10">
+                  {/* Header de la carte : Numéro, Badges & Icône */}
+                  <div className="flex items-center justify-between gap-3 mb-6 relative z-10">
                     <div className="flex items-center gap-2.5">
-                        <span className="px-3 py-1.5 rounded-lg bg-[#121217]/90 backdrop-blur-md border border-white/10 text-xs font-mono font-bold text-accent shadow-md">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#121217]/90 backdrop-blur-md border border-white/10 text-xs font-mono font-bold text-accent shadow-md">
                         {service.num}
-                        </span>
-                        <span className="px-3 py-1.5 rounded-lg bg-[#121217]/90 backdrop-blur-md border border-white/10 text-xs font-medium text-white/90 capitalize shadow-md">
+                      </span>
+                      <span className="px-3 py-1.5 rounded-lg bg-[#121217]/90 backdrop-blur-md border border-white/10 text-xs font-medium text-white/90 capitalize shadow-md">
                         {service.category}
-                        </span>
+                      </span>
                     </div>
 
                     <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-accent text-xl group-hover:bg-accent group-hover:text-primary group-hover:shadow-[0_0_15px_rgba(0,255,153,0.4)] transition-all duration-300">
-                        <IconComponent />
+                      <IconComponent />
                     </div>
-                    </div>
+                  </div>
 
-                    {/* Titre du service */}
-                    <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-300 relative z-10">
+                  {/* Titre du service */}
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-300 relative z-10">
                     {service.title}
-                    </h2>
+                  </h2>
 
-                    {/* Description synthétique */}
-                    <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-5 relative z-10">
+                  {/* Description synthétique */}
+                  <p className="text-white/70 text-xs sm:text-sm leading-relaxed mb-5 relative z-10">
                     {service.description}
-                    </p>
+                  </p>
 
-                    {/* Liste à puces avec glowing green dots */}
-                    <ul className="space-y-2.5 mb-6 relative z-10">
+                  {/* Liste à puces avec glowing green dots */}
+                  <ul className="space-y-2.5 mb-6 relative z-10">
                     {service.points.map((point, pIndex) => (
-                        <li key={pIndex} className="flex items-start gap-2.5">
+                      <li key={pIndex} className="flex items-start gap-2.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_#00ff99] shrink-0 mt-2" />
                         <p className="text-white/80 text-xs leading-relaxed">
-                            {point}
+                          {point}
                         </p>
-                        </li>
+                      </li>
                     ))}
-                    </ul>
+                  </ul>
                 </div>
 
                 <div>
-                    {/* Badges de Technologies */}
-                    <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10 relative z-10">
+                  {/* Badges de Technologies */}
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10 relative z-10">
                     {service.tags.map((tag, tIndex) => (
-                        <span
+                      <span
                         key={tIndex}
                         className="text-xs font-mono px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-white/80 group-hover:border-accent/30 group-hover:text-white transition-all"
-                        >
+                      >
                         {tag}
-                        </span>
+                      </span>
                     ))}
-                    </div>
+                  </div>
 
-                    {/* Bouton Contact / Discuter du projet */}
-                    <div className="mt-5 pt-3">
+                  {/* Bouton Contact / Discuter du projet */}
+                  <div className="mt-5 pt-3">
                     <Link
-                        href="#contact"
-                        className="inline-flex items-center gap-2 text-xs font-semibold text-accent group-hover:underline"
+                      href="#contact"
+                      className="inline-flex items-center gap-2 text-xs font-semibold text-accent group-hover:underline"
                     >
-                        <span>Lancer un projet</span>
-                        <BsArrowUpRight className="text-sm transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <span>Lancer un projet</span>
+                      <BsArrowUpRight className="text-sm transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </Link>
-                    </div>
+                  </div>
                 </div>
-                </motion.div>
+              </motion.div>
             );
-            })}
+          })}
         </div>
       </div>
     </section>
