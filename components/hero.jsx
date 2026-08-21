@@ -15,7 +15,7 @@ const Hero = () => {
         <div className="text-center mt-6 lg:mt-0 lg:text-left order-2 lg:order-none">
 
           {/* Badge disponibilité glassmorphism */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -25,7 +25,7 @@ const Hero = () => {
             <span className="text-xs sm:text-sm font-mono text-white/80">
               Disponible · Freelance / CDI · Dakar, Sénégal
             </span>
-          </motion.div>
+          </motion.div> */}
 
           <span className="text-xl font-semibold tracking-wide text-gradient-accent block mb-1">
             Développeur Fullstack & DevOps

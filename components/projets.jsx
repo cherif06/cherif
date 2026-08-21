@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import React from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
@@ -11,6 +12,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
 
 const projets = [
   {
@@ -35,6 +37,7 @@ const projets = [
       { name: "Tailwind CSS" },
     ],
     image: "/assets/projet1.png",
+    imageMobile: "/assets/mb-projet1.png",
     live: "https://maamcv.com/",
     github: "",
   },
@@ -57,6 +60,7 @@ const projets = [
       { name: "Tailwind CSS" },
     ],
     image: "/assets/projetVido.png",
+    imageMobile: "/assets/mb-projetVido.png",
     live: "",
     github: "",
   },
@@ -78,6 +82,7 @@ const projets = [
       { name: "Hostinger" },
     ],
     image: "/assets/projet3.png",
+    imageMobile: "/assets/mb-projet3.png",
     live: "https://dkrservices.com",
     github: "",
   },
@@ -98,6 +103,7 @@ const projets = [
       { name: "Hostinger" },
     ],
     image: "/assets/projet4.png",
+    imageMobile: "/assets/mb-projet4.png",
     live: "https://cegesintl.com/",
     github: "",
   }
@@ -114,6 +120,7 @@ const cardVariants = {
     },
   },
 };
+
 
 const Projets = () => {
   return (
@@ -197,12 +204,18 @@ const Projets = () => {
                 >
                   {/* Image Showcase occupant toute la moitié sans padding */}
                   <div className="w-full lg:w-5/12 relative min-h-[280px] sm:min-h-[340px] lg:min-h-full overflow-hidden bg-[#121217]">
-                    <Image
-                      src={project.image}
-                      fill
-                      alt={project.title}
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
+                      <Image
+                        fill
+                        src={project.imageMobile}
+                        alt={project.title}
+                        className="lg:hidden object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                      <Image
+                        src={project.image}
+                        fill
+                        alt={project.title}
+                        className="hidden lg:block object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#121217]/70 via-transparent to-transparent lg:hidden" />
 
                     {/* Badges sur l'image */}
